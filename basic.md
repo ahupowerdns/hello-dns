@@ -131,7 +131,7 @@ question.  It was originally intended that DNS records would exist in
 different 'classes', but the semantics of this were not specified completely
 and it was not really implemented.  For now, always set class to 1.
 
-The query name, type and class are also called 'qname', 'qtype' and 'qclass'
+The query name, type and class are also called 'QNAME', 'QTYPE' and 'QCLASS'
 respectively.
 
 Of specific note is the somewhat unusual way the name 'www.ietf.org' is
@@ -417,7 +417,7 @@ authoritative server.  It also has values that describe how or if a zone
 needs to be replicated.  Finally, the SOA record has a number that
 influences TTL values for names that do not exist.
 
-There is only one SOA that is guaranteed to exist on the internet and that
+There is only one SOA that is guaranteed to exist on the Internet and that
 is the one for the root zone (called '.').  As of 2018, it looks like this:
 
 ```
@@ -482,7 +482,7 @@ this nameserver for the NS RRSET of 'ietf.org' will receive responses
 with the AA bit set.
 
 Note however that above we learned that the parent zone, 'org' also needs to
-list the nameservers for example.org, and it does:
+list the nameservers for ietf.org, and it does:
 
 ```
 $ORIGIN org.
@@ -608,8 +608,8 @@ Authority section of the response. The TTL of that record tells us how long
 the knowledge of 'no such name' or 'no such data' can be cached.
 
 ## Query types that are not RRSET types
-In addition to the resource record types covered above, like A, AAAA, NS and
-SOA, two additional types exist that can only be used in queries: ANY, AXFR
+In addition to the resource record types covered above, like A, AAAA, NS, and
+SOA, two additional types exist that can only be used in queries: ANY, AXFR,
 and IXFR.
 
 An ANY query instructs a nameserver to return all types it immediately has

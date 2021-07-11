@@ -60,8 +60,8 @@ Fundamentally, the following answers are possible (this omits CNAME and
 wildcard processing, more about which below).
 
 1. No applicable zone is loaded. Send REFUSED answer.
-2. From best zone, there was an exact match for the qname and qtype, send RRSET, set NO ERROR
-3. From best zone, the name queried exists, but no matching qtype and no NS type present (send NO DATA)
+2. From best zone, there was an exact match for the QNAME and QTYPE, send RRSET, set NO ERROR
+3. From best zone, the name queried exists, but no matching QTYPE and no NS type present (send NO DATA)
 4. From best zone, the name may exist, but there is a node or a parent has an NS record. Send delegation
 
 
@@ -122,7 +122,7 @@ alternate way to describe the process is as follows:
     `org`, otherwise try the root zone. If no zones were found, send out  
     REFUSED.  
  3. Within the first zone that matched (say, `org`), search for `www.ietf`.
-    If that was not found, search for `ietf` etc etc
+    If that was not found, search for `ietf` etc. etc.
 
 This is effectively the same thing but implemented on a regular key/value
 lookup engine.
@@ -148,7 +148,7 @@ Specifically, this means not using wildcards for NS records or in other
 exciting places.
 
 # SOA Records
-There is only one SOA that is guaranteed to exist on the internet and that
+There is only one SOA that is guaranteed to exist on the Internet and that
 is the one for the root zone (called `.`).  As of 2018, it looks like this:
 
 ```
@@ -168,7 +168,7 @@ all means not always, this is a date in proper order (YYYYMMDD), followed by
 two digits indicating updates over the day.  This serial number is used for
 replication purposes, as are the following 3 numbers.
 
-Zones are hosted on 'masters`. Meanwhile, 'slave' servers poll the master
+Zones are hosted on 'masters'. Meanwhile, 'slave' servers poll the master
 for updates, and pull down a new zone if they see new contents, as noted by
 an increase in serial number.
 
